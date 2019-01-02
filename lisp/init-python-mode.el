@@ -6,12 +6,18 @@
 (eval-after-load 'python
   '(require 'flymake-python-pyflakes))
 
+(defun run-python-once ()
+  (remove-hook 'python-mode-hook 'run-python-once)
+  (run-python (python-shell-parse-command)))
+
+(add-hook 'python-mode-hook 'run-python-once)
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (unless (is-buffer-file-temp)
                (anaconda-mode)
                (add-to-list 'company-backends 'company-anaconda)
-               (eldoc-mode)
+               ;;(eldoc-mode)
                (if (executable-find "pyflakes")
                    (flymake-python-pyflakes-load))
                ;; http://emacs.stackexchange.com/questions/3322/python-auto-indent-problem/3338#3338

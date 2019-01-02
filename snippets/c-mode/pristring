@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: pristring
+# key: pristring
+# --
+printf("\n");$0

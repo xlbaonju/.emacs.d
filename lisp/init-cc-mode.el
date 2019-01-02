@@ -6,8 +6,7 @@
       (c-lineup-topmost-intro-cont langelem))))
 
 ;; avoid default "gnu" style, use more popular one
-(setq c-default-style "linux")
-
+(setq c-default-style '((java-mode . "java") (awk-mode . "awk") (other . "linux")))
 (defun fix-c-indent-offset-according-to-syntax-context (key val)
   ;; remove the old element
   (setq c-offsets-alist (delq (assoc key c-offsets-alist) c-offsets-alist))
@@ -16,7 +15,7 @@
 
 (defun my-common-cc-mode-setup ()
   "setup shared by all languages (java/groovy/c++ ...)"
-  (setq c-basic-offset 4)
+  ;;(setq c-basic-offset 4)
   ;; give me NO newline automatically after electric expressions are entered
   (setq c-auto-newline nil)
 
@@ -44,8 +43,10 @@
   (c-toggle-hungry-state 1)
 
   ;; indent
-  (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
-  (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0))
+  ;;(fix-c-indent-offset-according-to-syntax-context 'substatement 0)
+  ;;(fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
+  ;;  (fix-c-indent-offset-according-to-syntax-context ' 0)
+  )
 
 (defun my-c-mode-setup ()
   "C/C++ only setup"
@@ -88,12 +89,13 @@
               ;; gtags (GNU global) stuff
               (setq gtags-suggested-key-mapping t)
               (my-common-cc-mode-setup)
-              (unless (or (derived-mode-p 'java-mode) (derived-mode-p 'groovy-mode))
-                (my-c-mode-setup))
+	      (unless (or (derived-mode-p 'java-mode) (derived-mode-p 'groovy-mode))(my-c-mode-setup))
               (ggtags-mode 1)
               ;; emacs 24.4+ will set up eldoc automatically.
               ;; so below code is NOT needed.
               (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
+	      (modify-syntax-entry ?_ "w" c-mode-syntax-table)
+	      (modify-syntax-entry ?_ "w" c++-mode-syntax-table)
               )))
 
 (provide 'init-cc-mode)

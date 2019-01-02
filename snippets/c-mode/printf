@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: printf
+# key: printf
+# --
+printf(${1:const char *format}, ${2:...})$0

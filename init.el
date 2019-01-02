@@ -34,7 +34,7 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
                 gc-cons-percentage PER))
 
 
-(require 'init-modeline)
+;;(require 'init-modeline)
 (require 'cl-lib)
 (require 'init-compat)
 (require 'init-utils)
@@ -68,21 +68,22 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 (require 'init-ibuffer)
 (require 'init-flymake)
 (require 'init-smex)
-(require 'init-helm)
+;;(require 'init-helm)
 (require 'init-hippie-expand)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-git)
 (require 'init-crontab)
 (require 'init-markdown)
-(require 'init-erlang)
-(require 'init-javascript)
+;;(require 'init-erlang)
+;;(require 'init-javascript)
 (require 'init-org)
 (require 'init-org-mime)
-(require 'init-css)
+;;(require 'init-css)
 (require 'init-python-mode)
-(require 'init-haskell)
-(require 'init-ruby-mode)
+;;(require 'init-elpy)
+;;(require 'init-haskell)
+;;(require 'init-ruby-mode)
 (require 'init-lisp)
 (require 'init-elisp)
 (require 'init-yasnippet)
@@ -95,29 +96,29 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 (require 'init-moz)
 (require 'init-gtags)
 ;; use evil mode (vi key binding)
-(require 'init-evil)
+;;(require 'init-evil)
 (require 'init-sh)
 (require 'init-ctags)
-(require 'init-bbdb)
-(require 'init-gnus)
-(require 'init-lua-mode)
+;;(require 'init-bbdb)
+;;(require 'init-gnus)
+;;(require 'init-lua-mode)
 (require 'init-workgroups2)
 (require 'init-term-mode)
-(require 'init-web-mode)
+;;(require 'init-web-mode)
 (require 'init-slime)
 (require 'init-clipboard)
 (require 'init-company)
 (require 'init-chinese-pyim) ;; cannot be idle-required
 ;; need statistics of keyfreq asap
 (require 'init-keyfreq)
-(require 'init-httpd)
+;;(require 'init-httpd)
 
 ;; projectile costs 7% startup time
 
 ;; misc has some crucial tools I need immediately
 (require 'init-misc)
-(require 'init-color-theme)
-(require 'init-emacs-w3m)
+;;(require 'init-color-theme)
+;;(require 'init-emacs-w3m)
 
 ;; {{ idle require other stuff
 (setq idle-require-idle-delay 3)
@@ -155,8 +156,28 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-backends
+   (quote
+    (company-bbdb company-nxml company-eclim company-semantic
+		  (company-c-headers company-clang company-keywords)
+		  company-cmake company-capf
+		  (company-dabbrev-code company-gtags company-etags company-keywords)
+		  company-oddmuse company-files company-dabbrev)))
+ '(company-c-headers-path-system
+   (quote
+    ("/usr/include/" "/usr/include/i386-linux-gnu" "/usr/lib/gcc/i686-linux-gnu/4.9/include-fixed" "/usr/local/include/" "/usr/lib/gcc/i686-linux-gnu/4.9/include" "/usr/include/c++/4.9/backward" "/usr/include/i386-linux-gnu/c++/4.9" "/usr/include/c++/4.9")))
+ '(company-minimum-prefix-length 2)
+ '(erc-hide-list (quote ("JOIN" "PART" "QUIT")))
+ '(git-gutter:handled-backends (quote (svn hg git)))
+ '(make-backup-files nil)
  '(safe-local-variable-values (quote ((lentic-init . lentic-orgel-org-init))))
- '(session-use-package t nil (session)))
+ '(session-use-package t nil (session))
+ '(verilog-auto-lineup (quote all))
+ '(verilog-auto-newline nil)
+ '(verilog-case-indent 0)
+ '(verilog-indent-begin-after-if nil)
+ '(verilog-indent-level-declaration 0)
+ '(verilog-indent-level-module 0))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -167,3 +188,8 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 ;;; no-byte-compile: t
 ;;; End:
 (put 'erase-buffer 'disabled nil)
+
+(show-paren-mode)
+;;(modify-syntax-entry ?_ "w" c-mode-syntax-table)
+;;(modify-syntax-entry ?_ "w" c++-mode-syntax-table)
+

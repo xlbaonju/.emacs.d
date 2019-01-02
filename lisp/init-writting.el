@@ -38,7 +38,9 @@ Also converts full stops to commas."
   (interactive)
   (if (use-region-p)
       (call-interactively 'upcase-region)
-    (call-interactively 'subword-upcase)))
+    (if subword-mode
+	(call-interactively 'subword-upcase)
+      (call-interactively 'upcase-word))))
 
 (global-set-key "\M-c" 'endless/capitalize)
 (global-set-key "\M-l" 'endless/downcase)

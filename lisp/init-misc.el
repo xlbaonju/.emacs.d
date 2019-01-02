@@ -5,6 +5,10 @@
 (global-set-key (kbd "C-.") 'set-mark-command)
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
+;;map <menu> to modified char Control
+;;(global-unset-key [(menu)])
+;;(define-key function-key-map [(menu)] 'event-apply-control-modifier)
+
 ;; C#
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 
@@ -25,7 +29,8 @@
               save-interprogram-paste-before-kill t
               grep-highlight-matches t
               grep-scroll-output t
-              indent-tabs-mode nil
+              indent-tabs-mode t
+	      tab-always-indent 'complete
               line-spacing 0.2
               mouse-yank-at-point t
               set-mark-command-repeat-pop t
@@ -196,13 +201,13 @@
 
 ;; {{expand-region.el
 ;; if emacs-nox, use C-@, else, use C-2;
-(if window-system
-  (progn
+;;(if window-system
+;;  (progn
     (define-key global-map (kbd "C-2") 'er/expand-region)
     (define-key global-map (kbd "C-M-2") 'er/contract-region)
-    )
-  (define-key global-map (kbd "C-@") 'er/expand-region)
-  (define-key global-map (kbd "C-M-@") 'er/contract-region))
+;;    )
+;;  (define-key global-map (kbd "C-@") 'er/expand-region)
+;;  (define-key global-map (kbd "C-M-@") 'er/contract-region))
 ;; }}
 
 (defun generic-prog-mode-hook-setup ()
@@ -212,7 +217,7 @@
 	(fic-mode 1)
 	;; enable for all programming modes
 	;; http://emacsredux.com/blog/2013/04/21/camelcase-aware-editing/
-	(subword-mode)
+	(subword-mode -1)
 	(electric-pair-mode 1)
 	;; eldoc, show API doc in minibuffer echo area
 	(turn-on-eldoc-mode)
@@ -239,7 +244,7 @@
 
 ;; some project prefer tab, so be it
 ;; @see http://stackoverflow.com/questions/69934/set-4-space-indent-in-emacs-in-text-mode
-(setq-default tab-width 4)
+(setq-default tab-width 8)
 
 (setq history-delete-duplicates t)
 

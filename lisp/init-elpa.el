@@ -58,10 +58,27 @@ ARCHIVE is the string name of the package archive.")
 ;; Lock org-mode temporarily:
 ;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
-(setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("melpa-stable" . "http://stable.melpa.org/packages/")
+(setq package-archives '(
+			 ;; ("melpa" . "http://melpa.org/packages/")
+                         ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
                          ;; uncomment below line if you need use GNU ELPA
                          ;; ("gnu" . "http://elpa.gnu.org/packages/")
+
+			 ;; Use either 163 or tsinghua mirror repository when official melpa
+			 ;; is too slow or shutdown.
+
+			 ;; ;; {{ Option 1: 163 mirror repository:
+			 ;; ;; ("gnu" . "https://mirrors.163.com/elpa/gnu/")
+			 ("melpa" . "https://mirrors.163.com/elpa/melpa/")
+			 ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/")
+			 ;; ;; }}
+
+			 ;; ;; {{ Option 2: tsinghua mirror repository
+			 ;; ;; @see https://mirror.tuna.tsinghua.edu.cn/help/elpa/ on usage:
+			 ;; ;; ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			 ;; ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+			 ;; ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
+			 ;; }}
                          ))
 
 ;; Un-comment below line if you download zip file

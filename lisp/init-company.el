@@ -34,6 +34,8 @@
      (setq company-begin-commands '(self-insert-command))
      (setq company-idle-delay 0.2)
      (setq company-clang-insert-arguments nil)
+     (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+     (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
      ))
 
 ;; company should be case sensitive
