@@ -60,10 +60,10 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 ;; any file use flyspell should be initialized after init-spelling.el
 ;; actually, I don't know which major-mode use flyspell.
 (require 'init-spelling)
-(require 'init-xterm)
+;; (require 'init-xterm)
 (require 'init-gui-frames)
 (require 'init-ido)
-(require 'init-dired)
+;;(require 'init-dired)
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flymake)
@@ -72,9 +72,9 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 (require 'init-hippie-expand)
 (require 'init-windows)
 (require 'init-sessions)
-(require 'init-git)
-(require 'init-crontab)
-(require 'init-markdown)
+;; (require 'init-git)
+;;(require 'init-crontab)
+;;(require 'init-markdown)
 ;;(require 'init-erlang)
 ;;(require 'init-javascript)
 (require 'init-org)
@@ -108,7 +108,7 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 (require 'init-slime)
 (require 'init-clipboard)
 (require 'init-company)
-(require 'init-chinese-pyim) ;; cannot be idle-required
+;;(require 'init-chinese-pyim) ;; cannot be idle-required
 ;; need statistics of keyfreq asap
 (require 'init-keyfreq)
 ;;(require 'init-httpd)
@@ -117,7 +117,7 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
 
 ;; misc has some crucial tools I need immediately
 (require 'init-misc)
-;;(require 'init-color-theme)
+(require 'init-color-theme)
 ;;(require 'init-emacs-w3m)
 
 ;; {{ idle require other stuff
@@ -167,9 +167,16 @@ We increase this to 16MB by `(my-optimize-gc 16 0.5)` "
    (quote
     ("/usr/include/" "/usr/include/i386-linux-gnu" "/usr/lib/gcc/i686-linux-gnu/4.9/include-fixed" "/usr/local/include/" "/usr/lib/gcc/i686-linux-gnu/4.9/include" "/usr/include/c++/4.9/backward" "/usr/include/i386-linux-gnu/c++/4.9" "/usr/include/c++/4.9")))
  '(company-minimum-prefix-length 2)
- '(erc-hide-list (quote ("JOIN" "PART" "QUIT")))
+ ;; '(custom-enabled-themes (quote (sanityinc-solarized-light)))
+ ;; '(custom-safe-themes
+ ;;   (quote
+ ;;    ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
+ ;; '(erc-hide-list (quote ("JOIN" "PART" "QUIT")))
  '(git-gutter:handled-backends (quote (svn hg git)))
  '(make-backup-files nil)
+ ;; '(package-selected-packages
+ ;;   (quote
+ ;;    (color-theme-sanityinc-solarized yasnippet yaml-mode yagist writeroom-mode wgrep w3m unfill textile-mode tagedit string-edit simple-httpd session scss-mode scratch sass-mode rvm robe rinari regex-tool rainbow-delimiters quack pomodoro pointback paredit page-break-lines neotree multiple-cursors multi-term move-text markdown-mode lua-mode link legalese json-mode js2-mode idomenu ibuffer-vc htmlize haskell-mode guide-key gitignore-mode gitconfig-mode git-timemachine git-link git-gutter ggtags fringe-helper flyspell-lazy flymake-sass flymake-ruby flymake-python-pyflakes flymake-lua flymake-jslint flymake-css flymake-coffee flx-ido fakir expand-region exec-path-from-shell erlang emmet-mode dsvn diminish dictionary define-word cpputils-cmake connection company-c-headers company-anaconda color-theme-solarized coffee-mode cmake-mode buffer-move bbdb auto-compile ace-window)))
  '(safe-local-variable-values (quote ((lentic-init . lentic-orgel-org-init))))
  '(session-use-package t nil (session))
  '(verilog-auto-lineup (quote all))
